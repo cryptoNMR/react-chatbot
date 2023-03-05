@@ -8,13 +8,13 @@ export default function Slider() {
       <Carousel.Item>
         <img src="/images/first.jpg" alt="" fluid />
         <Carousel.Caption className="carousel-caption">
-          <h2>Welcome to RMC chatbot</h2>
+          <h2>Welcome to Talk chatgpt</h2>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img src="/images/second.jpg" alt="" fluid />
         <Carousel.Caption className="carousel-caption">
-          <h2>Lets Explore chatbot</h2>
+          <h2>Lets Explore chatgpt</h2>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
