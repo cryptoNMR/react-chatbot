@@ -16,9 +16,7 @@ const App = () => {
 
       <main className="py-3">
         <Container>
-          <div className="bot">
-            <Route path="/" component={Chatbot} exact />
-          </div>
+          <Route path="/" component={Chatbot} exact />
           <Route path="/faq" component={Faq} />
           <Route path="/help" component={Help} />
 
