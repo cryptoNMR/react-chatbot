@@ -16,11 +16,10 @@ const GptBot = () => {
       const response = await axios.post(
         "https://openai.1rmb.tk/v1/chat/completions",
         {
-          prompt: input,
-          max_tokens: 150,
+          model: 'gpt-3.5-turbo',
+          input,
           temperature: 0.6,
-          n: 1,
-          stop: "\n",
+          stream: true,
         },
         {
           headers: {
