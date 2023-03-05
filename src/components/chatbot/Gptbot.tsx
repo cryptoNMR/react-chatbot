@@ -48,7 +48,7 @@ const GptBot = () => {
 
   return (
     <div>
-      <div className="conversation">
+      <div className="conversation" style={{backgroundColor:'#FFFFFF', height:'100px', width:'100px'}}>
         {conversation.map((message, index) => (
           <div key={index}>
             {message.role === "user" && (
