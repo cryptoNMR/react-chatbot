@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import '../../App.css'
-import GptBot from './Gptbot'
+import GptBot from './Gptbot.tsx'
 const theme = {
   background: '#f5f8fb',
   fontFamily: 'Helvetica Neue',
