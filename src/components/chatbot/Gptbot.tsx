@@ -41,13 +41,13 @@ const GptBot = () => {
         }
       );
       setBotRes(response.data.choices[0].message.content);
-    } catch (error) {
-      console.log(error);
-    }finally {
       setConversation([
         ...conversation,
         { role: "assistant", content: botRes },
       ]);
+    } catch (error) {
+      console.log(error);
+    }finally {
       setInput("");
       setIsSending(false);
     }
