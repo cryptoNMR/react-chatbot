@@ -41,11 +41,13 @@ const GptBot = () => {
         }
       );
       const botRes = response.data.choices[0].message.content;
-      setConversation([
-        ...conversation,
-        { role: "user", content: input },
-        { role: "assistant", content: botRes },
-      ]);
+      if (botRes != '' && botRes != null) {
+        setConversation([
+          ...conversation,
+          { role: "user", content: input },
+          { role: "assistant", content: botRes },
+        ]);
+      }
       const conversationDiv = document.getElementById("conversation");
       if (conversationDiv) {
         conversationDiv.scrollTop = conversationDiv.scrollHeight;
