@@ -20,10 +20,6 @@ const GptBot = () => {
   const handleChat = async () => {
     if (isSending) return;
     setIsSending(true);
-    setConversation([
-      ...conversation,
-      { role: "user", content: input },
-    ]);
     try {
       const response = await axios.post(
         "https://openai.1rmb.tk/v1/chat/completions",
@@ -42,8 +38,13 @@ const GptBot = () => {
       const botRes = response.data.choices[0].message.content;
       setConversation([
         ...conversation,
+        { role: "user", content: input },
         { role: "assistant", content: botRes },
       ]);
+      const conversationDiv = document.getElementById("conversation");
+      if (conversationDiv) {
+        conversationDiv.scrollTop = conversationDiv.scrollHeight;
+      }
     } catch (error) {
       console.log(error);
     }finally {
@@ -54,7 +55,7 @@ const GptBot = () => {
 
   return (
     <div>
-      <div className="conversation" >
+      <div id="conversation" className="conversation" >
         {conversation.map((message, index) => (
           <div key={index}>
             {message.role === "user" && (
