@@ -13,7 +13,11 @@ const Header = () => {
                 <i className="fas fa-robot"></i> ChatBot
               </Navbar.Brand>
             </LinkContainer>
-
+            <LinkContainer to="/welcome">
+              <Navbar.Brand>
+                <i class="fa-duotone fa-galaxy"></i> Welcome
+              </Navbar.Brand>
+            </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ml-auto">
