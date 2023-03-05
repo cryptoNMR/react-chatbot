@@ -9,6 +9,7 @@ interface ChatMessage {
 const GptBot = () => {
   const [input, setInput] = useState("");
   const [conversation, setConversation] = useState<ChatMessage[]>([]);
+  const [reqConversation, setReqConversation] = useState<ChatMessage[]>([]);
   const [isSending, setIsSending] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,12 +21,16 @@ const GptBot = () => {
   const handleChat = async () => {
     if (isSending) return;
     setIsSending(true);
+    setReqConversation([
+      ...conversation,
+      { role: "user", content: input },
+    ]);
     try {
       const response = await axios.post(
         "https://openai.1rmb.tk/v1/chat/completions",
         {
           model:"gpt-3.5-turbo",
-          messages: conversation,
+          messages: reqConversation,
           temperature: 0.5,
         },
         {
