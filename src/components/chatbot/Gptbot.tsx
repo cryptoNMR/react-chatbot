@@ -51,18 +51,18 @@ const GptBot = () => {
 
   return (
     <div>
-      <div className="conversation" style={{backgroundColor:'#FFFFFF', height:'100px', width:'100px'}}>
+      <div className="conversation" >
         {conversation.map((message, index) => (
           <div key={index}>
             {message.role === "user" && (
               <div className="user-message">
-                <img src="user-avatar.png" alt="User Avatar" />
+                <img src="/images/user.png" alt="User Avatar" />
                 <p>{message.content}</p>
               </div>
             )}
             {message.role === "assistant" && (
               <div className="bot-message">
-                <img src="chatbot-avatar.png" alt="Chatbot Avatar" />
+                <img src="/images/logo.png" alt="Chatbot Avatar" />
                 <p>{message.content}</p>
               </div>
             )}
