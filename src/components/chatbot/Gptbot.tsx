@@ -28,7 +28,6 @@ const GptBot = () => {
           model:"gpt-3.5-turbo",
           messages: conversation,
           temperature: 0.5,
-          stream:true
         },
         {
           headers: {
