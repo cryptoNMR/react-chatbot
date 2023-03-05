@@ -17,6 +17,10 @@ const GptBot = () => {
   const apiKey = localStorage.getItem('key')
 
   const handleChat = async () => {
+    setConversation([
+      ...conversation,
+      { role: "user", content: input },
+    ]);
     try {
       const response = await axios.post(
         "https://openai.1rmb.tk/v1/chat/completions",
@@ -37,7 +41,6 @@ const GptBot = () => {
       const botResponse = response.data.choices[0].message.content;
       setConversation([
         ...conversation,
-        { role: "user", content: input },
         { role: "assistant", content: botResponse },
       ]);
       setInput("");
