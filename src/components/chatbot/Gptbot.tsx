@@ -55,13 +55,13 @@ const GptBot = () => {
           <div key={index}>
             {message.role === "user" && (
               <div className="user-message">
-                <img src="/images/user.png" alt="User Avatar" />
+                <img src="/images/user.png" alt="User Avatar" sizes="100" />
                 <p>{message.content}</p>
               </div>
             )}
             {message.role === "assistant" && (
               <div className="bot-message">
-                <img src="/images/logo.png" alt="Chatbot Avatar" />
+                <img src="/images/logo.png" alt="Chatbot Avatar" sizes="100" />
                 <p>{message.content}</p>
               </div>
             )}
