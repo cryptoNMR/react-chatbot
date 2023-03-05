@@ -8,7 +8,9 @@ interface ChatMessage {
 
 const GptBot = () => {
   const [input, setInput] = useState("");
+  const [botRes, setBotRes] = useState("");
   const [conversation, setConversation] = useState<ChatMessage[]>([]);
+  const [isSending, setIsSending] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -17,6 +19,8 @@ const GptBot = () => {
   const apiKey = localStorage.getItem('key')
 
   const handleChat = async () => {
+    if (isSending) return;
+    setIsSending(true);
     setConversation([
       ...conversation,
       { role: "user", content: input },
@@ -36,15 +40,16 @@ const GptBot = () => {
           },
         }
       );
-
-      const botResponse = response.data.choices[0].message.content;
-      setConversation([
-        ...conversation,
-        { role: "assistant", content: botResponse },
-      ]);
-      setInput("");
+      setBotRes(response.data.choices[0].message.content);
     } catch (error) {
       console.log(error);
+    }finally {
+      setConversation([
+        ...conversation,
+        { role: "assistant", content: botRes },
+      ]);
+      setInput("");
+      setIsSending(false);
     }
   };
 
@@ -70,7 +75,7 @@ const GptBot = () => {
       </div>
       <div className="input-container">
         <input type="text" value={input} onChange={handleInputChange} />
-        <button onClick={handleChat}>Send</button>
+        <button onClick={handleChat}> {isSending ? "Sending..." : "Send"}</button>
       </div>
     </div>
   );
