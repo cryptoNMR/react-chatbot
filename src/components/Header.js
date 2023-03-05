@@ -15,7 +15,7 @@ const Header = () => {
             </LinkContainer>
             <LinkContainer to="/welcome">
               <Navbar.Brand>
-                <i class="fa-duotone fa-galaxy"></i> Welcome
+                <i className="fa-duotone fa-galaxy"></i> Welcome
               </Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
