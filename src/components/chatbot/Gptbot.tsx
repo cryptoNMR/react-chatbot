@@ -8,7 +8,6 @@ interface ChatMessage {
 
 const GptBot = () => {
   const [input, setInput] = useState("");
-  const [botRes, setBotRes] = useState("");
   const [conversation, setConversation] = useState<ChatMessage[]>([]);
   const [isSending, setIsSending] = useState(false);
 
@@ -40,7 +39,7 @@ const GptBot = () => {
           },
         }
       );
-      setBotRes(response.data.choices[0].message.content);
+      const botRes = response.data.choices[0].message.content;
       setConversation([
         ...conversation,
         { role: "assistant", content: botRes },
